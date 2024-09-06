@@ -47,149 +47,136 @@ import com.example.laboratorio4uvg.R
 
 
 @Composable
-fun MyProfileScreen(modifier: Modifier) {
+fun TheProfile(modifier: Modifier = Modifier) {
     val navController: NavHostController = rememberNavController()
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.white))
-            .wrapContentSize(Alignment.TopCenter)
-            .verticalScroll(rememberScrollState()).padding(0.dp,0.dp,0.dp,40.dp)
+            .verticalScroll(rememberScrollState())
+            .padding(bottom = 40.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-            ,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-
-            Text(
-                text = "My Profile",
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(top=40.dp)
-                    .wrapContentWidth(Alignment.CenterHorizontally),
-                fontSize = 20.sp,
-            )
-
-            IconButton(
-                onClick = {
-
-                },
-                modifier = Modifier.size(48.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Settings,
-                    contentDescription = "Settings",
-                    tint = Color.Black
-                )
-            }
-        }
-
-
-        val image = painterResource(id = R.drawable.libros)
-        Box(
-        ){
-            Image(
-                painter = image,
-                contentDescription="CAMPUS CENTRAL",
-                modifier = Modifier
-                    .fillMaxWidth()
-
-                    .graphicsLayer(alpha = 1f) // Adjust this alpha to control the image opacity
-                    .drawWithContent {
-                        drawContent()
-
-                        // Draw a semi-transparent white overlay
-                        drawRect(
-                            brush = Brush.verticalGradient(
-                                colors = listOf(Color.White.copy(alpha = 0.9f), Color.Transparent)
-                            )
-                        )
-                    }
-
-            )
-        }
-
-        val imageProfile = painterResource(id = R.drawable.ic_profile_gray)
-        Box(
-            modifier = Modifier.fillMaxWidth(1f),
-            contentAlignment = Alignment.Center,
-
-        ){
-            Image(
-                painter = imageProfile,
-                contentDescription="PERFIL",
-                modifier = Modifier.size(200.dp).align(Alignment.Center)
-                .offset(y = -100.dp).background(Color.White, shape = CircleShape),
-
-                )
-        }
-
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp).offset(y = -100.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "Audrey Samantha Bhor López",
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-                fontSize = 20.sp,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
-            )
-
-        }
-
+        Header()
+        ProfileImageSection()
+        UserProfileInfo()
         Sidebar()
-
-
     }
 }
 
 @Composable
-fun Sidebar(){
-    Column(
-        modifier = Modifier
-            .fillMaxWidth(1f).offset(y = -100.dp)
-    ) {
-        SidebarItem(icon = Icons.Default.Home, text = "My Campus", Color(7, 139, 69)) {
-        }
-        SidebarItem(icon = Icons.Default.Person, text = "My Friends", Color(0, 119, 182)) {
-        }
-        SidebarItem(icon = Icons.Default.DateRange, text = "My Calendar", Color(128, 237, 153)) {
-        }
-
-        SidebarItem(icon = Icons.Default.AccountBox, text = "My Courses", Color(255, 159, 28)) {
-        }
-
-        SidebarItem(icon = Icons.Default.Star, text = "My Grades", Color (7, 59, 76)) {
-        }
-
-        SidebarItem(icon = Icons.Default.AccountBox, text = "My Groups", Color(114, 9, 183)) {
-        }
-        SidebarItem(icon = Icons.Default.DateRange, text = "My Upcoming Events", Color(64, 121, 140)) {
-        }
-    }
-}
-
-
-@Composable
-fun SidebarItem(icon: ImageVector, text: String,color:Color, onItemClick: () -> Unit) {
+fun Header() {
     Row(
         modifier = Modifier
-            .fillMaxWidth(1f)
+            .fillMaxWidth()
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = "My Profile",
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .weight(1f)
+                .padding(top = 40.dp)
+                .wrapContentWidth(Alignment.CenterHorizontally),
+            fontSize = 20.sp
+        )
+
+        IconButton(
+            onClick = { /* Settings action */ },
+            modifier = Modifier.size(48.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Settings,
+                contentDescription = "Settings",
+                tint = Color.Black
+            )
+        }
+    }
+}
+
+@Composable
+fun ProfileImageSection() {
+    Box {
+        Image(
+            painter = painterResource(id = R.drawable.libros),
+            contentDescription = "CAMPUS CENTRAL",
+            modifier = Modifier
+                .fillMaxWidth()
+                .graphicsLayer(alpha = 1f)
+                .drawWithContent {
+                    drawContent()
+                    drawRect(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(Color.White.copy(alpha = 0.9f), Color.Transparent)
+                        )
+                    )
+                }
+        )
+    }
+
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.ic_profile_gray),
+            contentDescription = "PERFIL",
+            modifier = Modifier
+                .size(200.dp)
+                .offset(y = -100.dp)
+                .background(Color.White, shape = CircleShape)
+        )
+    }
+}
+
+@Composable
+fun UserProfileInfo() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .offset(y = -100.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = "Audrey Bhor / Diego Rizzo",
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
+
+@Composable
+fun Sidebar() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .offset(y = -100.dp)
+    ) {
+        SidebarItem(icon = Icons.Default.Home, text = "My Campus", color = Color(7, 139, 69)) {}
+        SidebarItem(icon = Icons.Default.Person, text = "My Friends", color = Color(0, 119, 182)) {}
+        SidebarItem(icon = Icons.Default.DateRange, text = "My Calendar", color = Color(128, 237, 153)) {}
+        SidebarItem(icon = Icons.Default.AccountBox, text = "My Courses", color = Color(255, 159, 28)) {}
+        SidebarItem(icon = Icons.Default.Star, text = "My Grades", color = Color(7, 59, 76)) {}
+        SidebarItem(icon = Icons.Default.AccountBox, text = "My Groups", color = Color(114, 9, 183)) {}
+        SidebarItem(icon = Icons.Default.DateRange, text = "My Upcoming Events", color = Color(64, 121, 140)) {}
+    }
+}
+
+@Composable
+fun SidebarItem(icon: ImageVector, text: String, color: Color, onItemClick: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
             .clickable(onClick = onItemClick)
             .padding(start = 16.dp, top = 12.dp, bottom = 12.dp)
-
     ) {
         Icon(
             imageVector = icon,

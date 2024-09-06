@@ -41,7 +41,7 @@ import androidx.compose.ui.unit.sp
 import com.example.laboratorio4uvg.R
 
 @Composable
-fun SettingsScreen(modifier: Modifier) {
+fun Settings(modifier: Modifier) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -97,34 +97,27 @@ fun SidebarSettings(){
             .fillMaxWidth(1f)
     ) {
         SidebarItemSettings(icon = Icons.Default.Person, text = "Edit Profile", Color(64, 66, 65, 255)) {
-            // Handle Home item click
         }
         SidebarItemSettings(icon = Icons.Default.Email, text = "Email Addresses", Color(128, 237, 153)) {
-            // Handle Profile item click
         }
         SidebarItemSettings(icon = Icons.Default.Notifications, text = "Notifications", Color(255, 159, 28)) {
-            // Handle Settings item click
         }
 
         SidebarItemSettings(icon = Icons.Default.Lock, text = "Privacy", Color(64, 66, 65, 255)) {
-            // Handle Settings item click
         }
 
         Divider(color = Color(228, 231, 230, 195), thickness = 20.dp)
 
 
         SidebarItemSettings(icon = Icons.Default.Warning, text = "Help & Feedback", Color(220, 76, 100)) {
-            // Handle Settings item click
         }
 
         SidebarItemSettings(icon = Icons.Default.Info, text = "About", Color(59, 113, 202)) {
-            // Handle Settings item click
         }
 
         Divider(color = Color(228, 231, 230, 195), thickness = 20.dp)
 
         SidebarItemSettings(icon = Icons.Default.ExitToApp, text = "Logout", Color(220, 76, 100)) {
-            // Handle Settings item click
         }
 
     }

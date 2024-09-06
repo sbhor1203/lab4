@@ -11,8 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.laboratorio4uvg.Pages.SettingsScreen
-import com.example.laboratorio4uvg.Pages.MyProfileScreen
+import com.example.laboratorio4uvg.Pages.Settings
+import com.example.laboratorio4uvg.Pages.TheProfile
 import com.example.laboratorio4uvg.ui.theme.Laboratorio4UvgTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,8 +22,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             Laboratorio4UvgTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MyProfileScreen(modifier = Modifier.padding(innerPadding))
-                    //SettingsScreen(modifier = Modifier.padding(innerPadding))
+                    TheProfile(modifier = Modifier.padding(innerPadding)) // llamando al paquete de pages para cada pantalla
+                    //Settings(modifier = Modifier.padding(innerPadding)) // pantalla de settings
 
                 }
             }
