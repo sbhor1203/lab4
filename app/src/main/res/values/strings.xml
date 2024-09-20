@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Laboratorio4 uvg</string>
+    <string name="segmentoSN">Service Now</string>
+    <string name="segmentoActualidad">Actualidad UVG</string>
+    <string name="segmentoDirectorio">Directorio de Servicios Estudiantiles</string>
+    <string name="segmentoPortal">Portal Web Bibliotecas UVG</string>
+    <string name="desc_emergencias">Si se presenta un incidente o un percance por favor marca el número de emergencia y rápidamente te apoyamos.</string>
+    <string name="desc_clinica">La Clínica UVG, presta los siguientes servicios:
+
+        * Atención a Emergencias
+        * Atención Primaria a Enfermedades Comunes
+        * Plan Educacional sobre Enfermedades
+
+        Horario de Atención: 7:00 a.m. a 8:30 p.m.
+        Campus Central Edificio F119-120
+    </string>
+    <string name="num_emergencias">Call 5978-1736</string>
+    <string name="num_clinica">Call 2507-1500 ex 21312</string>
 </resources>
