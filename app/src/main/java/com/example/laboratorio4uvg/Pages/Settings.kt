@@ -41,9 +41,9 @@ import androidx.compose.ui.unit.sp
 import com.example.laboratorio4uvg.R
 
 @Composable
-fun Settings(modifier: Modifier) {
+fun Settingsapp(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.white))
             .wrapContentSize(Alignment.TopCenter)
